@@ -72,16 +72,28 @@ function typer() {
 }
 
 function key(e) {
-	var k = event.keyCode;
+	let k = event.keyCode;
 
-	if (k=='13') { search() }
+	if (k===13) {
+		event.preventDefault();
+		search()
+	}
 }
 
 var search_bar = document.getElementById("search_input");
 var frame = document.getElementById("frame");
 function search() {
-	let s = search_bar.textContent;
-	console.log(s);
-	search_bar.textContent = "";
-	//frame.src = 
+	let s = search_bar.value;
+	if (s.trim() == "") {
+		search_bar.value = "";
+		return
+	}
+
+	if (s == "necromancy.club") {
+		frame.src = "necromancy_club.html"
+	} else if (s == "/freq") {
+		frame.src = "freq.html"
+	} else {
+		frame.src = "error.html"
+	}
 }

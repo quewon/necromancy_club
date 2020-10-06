@@ -19,7 +19,7 @@
 				<div id="search_bar">
 					<span>></span>
 					<textarea id="search_input" spellcheck="false" class="noselect caretjs">necromancy.club</textarea>
-					<button id="search_button" class="noselect" onclick="search()">go!</button>
+					<button type="button" id="search_button" class="noselect" onclick="search()">go!</button>
 					<iframe id="frame" src="necromancy_club.html"></iframe>
 				</div>
 			</div>
@@ -30,6 +30,8 @@
 	<script src="dialog.js"></script>
 	<script src="script.js"></script>
 	<script>
+		search_bar.addEventListener("keypress", function(e) { key(e)});
+
 		screen('browser');
 		//screen('log');
 		//log(dialog.LOG0);
