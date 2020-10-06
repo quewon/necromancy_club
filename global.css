@@ -1,0 +1,21 @@
+html {
+	--bg: #056676;
+	--primary: #e8ded2;
+	--secondary: #5eaaa8;
+	--width: 500px;
+	--height: 500px;
+	--font-size: 18px;
+	background-color: var(--bg);
+	color: var(--primary);
+	font-size: var(--font-size);
+	font-family: "Ubuntu Mono", monospace;
+}
+
+a {
+	color: var(--secondary);
+}
+a:hover {
+	background: var(--secondary);
+	color: var(--primary);
+	cursor: pointer;
+}

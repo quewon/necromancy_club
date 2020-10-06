@@ -1,5 +1,5 @@
 var dialog = {
-	LOG001:
+	LOG0:
 `necromancy club rules
 1. no practicing necromancy alone (at least three people or more!)
 2. no talking about necromancy outside the club
@@ -7,7 +7,7 @@ var dialog = {
 4. come to the meeting every thursday, after school, at the benches behind the courtyard`
 	,
 
-	LOG002:
+	LOG1:
 `necromancy club rules [updated august 7, 2010]
 1. no practicing necromancy`
 	,

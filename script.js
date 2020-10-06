@@ -1,6 +1,6 @@
 var screens = {
 	log: document.getElementById("log"),
-	files: document.getElementById("files")
+	browser: document.getElementById("browser")
 }
 
 function screen(screen_name) {
@@ -71,7 +71,17 @@ function typer() {
 	}
 }
 
-//initialization
+function key(e) {
+	var k = event.keyCode;
 
-screen('log');
-log(dialog.LOG001);
+	if (k=='13') { search() }
+}
+
+var search_bar = document.getElementById("search_input");
+var frame = document.getElementById("frame");
+function search() {
+	let s = search_bar.textContent;
+	console.log(s);
+	search_bar.textContent = "";
+	//frame.src = 
+}

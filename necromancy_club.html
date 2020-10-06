@@ -1,0 +1,124 @@
+<link href="https://fonts.googleapis.com/css2?family=Crete+Round:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<style>
+	h1 {
+		font-family: Crete Round, serif;
+		margin-bottom: 5px;
+		text-align: center;
+	}
+	h1:hover {
+		cursor: pointer;
+	}
+
+	#container {
+	}
+
+	#topbar {
+		border-bottom: 1px solid var(--primary);
+		border-top: 1px solid var(--primary);
+		text-align: center;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+
+	#sidebar {
+		padding: 5px;
+		width: 30%;
+		border-right: 1px solid var(--primary);
+		display: inline-block;
+	}
+
+	ul {
+		margin: 0;
+	}
+
+	#container {
+		display: inline-block;
+		vertical-align: top;
+		padding: 5px;
+		width: 60%;
+	}
+</style>
+<body>
+	<h1>the necromancy club</h1>
+
+	<div id="topbar">
+		<a onclick="post('faq')">FAQ</a> / <a onclick="post('members')">members</a> / <a onclick="post('contact')">contact</a>
+	</div>
+
+	<div>
+		<div id="sidebar">
+			'08 december
+			<ul>
+				<li><a onclick="post(1)">week one</a></li>
+				<li><a onclick="post(2)">week two</a></li>
+				<li><a onclick="post(3)">week three</a></li>
+				<li><a onclick="post(4)">week four</a></li>
+			</ul>
+			'09 january
+			<ul>
+				<li><a onclick="post(5)">week one</a></li>
+				<li><a onclick="post(6)">week two</a></li>
+				<li><a onclick="post(7)">week three</a></li>
+				<li><a onclick="post(8)">week four</a></li>
+			</ul>
+			'09 february
+			<ul>
+				<li><a onclick="post(9)">week one</a></li>
+				<li><a onclick="post(10)">week two</a></li>
+				<li><a onclick="post(11)">week three</a></li>
+				<li><a onclick="post(12)">week four</a></li>
+			</ul>
+			'09 march
+			<ul>
+				<li><a onclick="post(13)">week one</a></li>
+				<li><a onclick="post(14)">week two</a></li>
+				<li><a onclick="post(15)">week three</a></li>
+				<li><a onclick="post(16)">week four</a></li>
+			</ul>
+			'09 april
+			<ul>
+				<li><a onclick="post(17)">week one</a></li>
+				<li><a onclick="post(18)">week two</a></li>
+				<li><a onclick="post(19)">week three</a></li>
+				<li><a onclick="post(20)">week four</a></li>
+			</ul>
+			'09 may
+			<ul>
+				<li><a onclick="post(21)">week one</a></li>
+				<li><a onclick="post(22)">week two</a></li>
+				<li><a onclick="post(23)">week three</a></li>
+				<li><a onclick="post(24)">week four</a></li>
+			</ul>
+			'09 june
+			<ul>
+				<li><a onclick="post(25)">week one</a></li>
+				<li><a onclick="post(26)">week two</a></li>
+				<li><a onclick="post(27)">week three</a></li>
+				<li><a onclick="post(28)">week four</a></li>
+			</ul>
+			'09 july
+			<ul>
+				<li><a onclick="post(29)">week one</a></li>
+				<li><a onclick="post(30)">week two</a></li>
+				<li><a onclick="post(31)">week three</a></li>
+				<li><a onclick="post(32)">week four</a></li>
+			</ul>
+		</div>
+		<div id="container"></div>
+	</div>
+</body>
+<script>
+	var container = document.getElementById('container');
+	var posts = {
+		POSTfaq: "what is necromancy? good question",
+		POSTmembers: "membersssss",
+		POSTcontact: "yeah u can contact me",
+		POST1: "whoo",
+		POST2: "[automatically purged post]",
+		POST3: "[automatically purged post]",
+	}
+	function post(num) {
+		container.textContent = posts["POST"+num];
+	}
+</script>
