@@ -54,6 +54,8 @@ function typer() {
 			type.line++;
 			type.end_of_line = false;
 			area.innerHTML += "<br />"
+
+			if (type.line >= text.length) { return }
 		} else {
 			type.break_timer++;
 		}
