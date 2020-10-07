@@ -8,6 +8,7 @@ html {
 	--bg: #808080;
 	--primary: #fff;
 	--secondary: lightgray;
+	--links: #ffc524;;
 
 	--width: 500px;
 	--height: 500px;
@@ -19,10 +20,10 @@ html {
 }
 
 a {
-	color: var(--secondary);
+	color: var(--links);
 }
 a:hover {
-	background: var(--secondary);
+	background: var(--links);
 	color: var(--primary);
 	cursor: pointer;
 }
