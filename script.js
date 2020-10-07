@@ -85,28 +85,34 @@ function search() {
 	frame.src = "websites/"+link_key+"/index.html";
 }
 
-function load_update() {
-	let s = frame.contentWindow.location.href;
-	console.log(s);
-	s = s.split("/");
-	s = s[s.length-2];
-
-	if (links[s] != undefined) {
-		s = links[s];
-		search_bar.value = s;
-		if (s != search_history[search_history.length-1]) {
-			search_history.push(s);
-		}
-	} else {
-		if (s != search_history[search_history.length-1]) {
-			search_history.push(s);
-		}
+//a function for other sites to use to go to different sites
+//and for hyperlinks in log
+function hyperlink(link, page) {
+	//change search bar value
+	search_bar.value = links[link];
+	if (page) {
+		search_bar.value += "/"+page;
 	}
 
 	search_type.textContent = 'link>'
-	if (s == links.freq) {
+	if (links[link] == links.freq) {
 		search_type.textContent = 'ctrl>'
 	}
+
+	//add search bar value to search history
+	if (search_bar.value != search_history[search_history.length-1]) {
+		search_history.push(search_bar.value);
+	}
+
+	//change frame source
+	let source = "websites/"+link;
+	if (!page) {
+		source += "/index.html"
+	} else {
+		source += "/"+page+".html"
+	}
+	console.log(source);
+	frame.src = source;
 }
 
 function scroll_history() {
@@ -121,12 +127,4 @@ function log(t, link) {
 	}
 	let textarea = document.getElementById("logtext");
 	textarea.innerHTML = t;
-}
-
-function browse(link) {
-	if (current_screen != 'browser') {
-		screen('browser');
-	}
-	search_bar.value = link;
-	search()
 }
