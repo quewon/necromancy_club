@@ -106,7 +106,7 @@ var sh_value = 0;
 var links = {
 	necromancy_club: "necromancy.club",
 	email: "email.com",
-	freq: "/freq"
+	freq: "freq"
 }
 
 var apples = 'apples';
@@ -122,7 +122,7 @@ function search() {
 		search_history.push(s);
 	}
 	search_type.textContent = 'link>'
-	if (s == '/freq') {
+	if (s == links.freq) {
 		search_type.textContent = 'ctrl>'
 	}
 
@@ -141,15 +141,21 @@ function load_update() {
 	s = s.split("/");
 	s = s[s.length-1];
 	s = s.replace(".html", "");
-	s = links[s];
 
-	if (s != undefined) { search_bar.value = s; }
-
-	if (s != search_history[search_history.length-1]) {
-		search_history.push(s);
+	if (links[s] != undefined) {
+		s = links[s];
+		search_bar.value = s;
+		if (s != search_history[search_history.length-1]) {
+			search_history.push(s);
+		}
+	} else {
+		if (s != search_history[search_history.length-1]) {
+			search_history.push(s);
+		}
 	}
+
 	search_type.textContent = 'link>'
-	if (s == '/freq') {
+	if (s == links.freq) {
 		search_type.textContent = 'ctrl>'
 	}
 }
