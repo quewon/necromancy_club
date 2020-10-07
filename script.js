@@ -121,17 +121,18 @@ function search() {
 }
 
 function update_link(s) {
-	if (s == "necromancy.club") {
-		frame.src = "websites/necromancy_club.html"
-	} else if (s == "/freq") {
-		frame.src = "websites/freq.html"
-	} else {
-		frame.src = "websites/error.html"
-	}
-
 	if (s != search_history[search_history.length-1]) {
 		search_history.push(s);
 	}
+
+	let link_key = Object.keys(links).find(key => links[key] === s);
+
+	if (!link_key) {
+		frame.src = "websites/error.html";
+		return
+	}
+
+	frame.src = "websites/"+link_key+".html";
 }
 
 function scroll_history() {
