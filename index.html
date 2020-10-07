@@ -29,7 +29,7 @@
 
 	<script src="dialog.js"></script>
 	<script src="script.js"></script>
-	<script src="websites/caret.js"></script>
+	<script src="caret.js"></script>
 	<script>
 		search_bar.addEventListener("keypress", function(e) { key(e)});
 		search_bar.addEventListener("keydown", function(e) { keyd(e)});
@@ -41,6 +41,7 @@
 		//window.addEventListener("input", function() { CARET.update() });
 
 		search_input.value = links.necromancy_club;
+		search();
 		log(dialog.LOG0);
 		screen('browser');
 	</script>

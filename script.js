@@ -57,7 +57,8 @@ var sh_value = 0;
 var links = {
 	necromancy_club: "necromancy.club",
 	email: "email.com",
-	freq: "freq"
+	freq: "freq",
+	404: "404"
 }
 
 function search() {
@@ -67,27 +68,23 @@ function search() {
 		return
 	}
 
-	if (s != search_history[search_history.length-1]) {
-		search_history.push(s);
-	}
-	search_type.textContent = 'link>'
-	if (s == links.freq) {
-		search_type.textContent = 'ctrl>'
-	}
+	s = s.split("/");
+	s[0] = Object.keys(links).find(key => links[key] === s[0]);
 
-	let link_key = Object.keys(links).find(key => links[key] === s);
-
-	if (!link_key) {
-		frame.src = "websites/error.html";
-		return
+	if (s.length == 1) {
+		hyperlink(s[0])
+	} else {
+		hyperlink(s[0], s[1])
 	}
-
-	frame.src = "websites/"+link_key+"/index.html";
 }
 
 //a function for other sites to use to go to different sites
 //and for hyperlinks in log
 function hyperlink(link, page) {
+	if (links[link] == undefined) {
+		link = 404
+	}
+
 	//change search bar value
 	search_bar.value = links[link];
 	if (page) {
@@ -95,12 +92,12 @@ function hyperlink(link, page) {
 	}
 
 	search_type.textContent = 'link>'
-	if (links[link] == links.freq) {
+	if (links[link] == links.freq || link == 404) {
 		search_type.textContent = 'ctrl>'
 	}
 
 	//add search bar value to search history
-	if (search_bar.value != search_history[search_history.length-1]) {
+	if (link != 404 && search_bar.value != search_history[search_history.length-1]) {
 		search_history.push(search_bar.value);
 	}
 
@@ -111,8 +108,9 @@ function hyperlink(link, page) {
 	} else {
 		source += "/"+page+".html"
 	}
-	console.log(source);
 	frame.src = source;
+
+	console.log("hyperlinked: "+source);
 }
 
 function scroll_history() {
