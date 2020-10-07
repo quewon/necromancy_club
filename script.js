@@ -135,6 +135,10 @@ function update_link(s) {
 	frame.src = "websites/"+link_key+".html";
 }
 
+function load_update() {
+	console.log(frame.contentWindow.location.href)
+}
+
 function scroll_history() {
 	search_bar.value = search_history[search_history.length-1-sh_value];
 }

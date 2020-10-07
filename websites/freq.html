@@ -3,5 +3,10 @@
 <h1>FREQUENTLY VISITED PAGES</h1>
 <u1>
 	<li>email.com</li>
-	<li>necromancy.club</li>
+	<li><a onclick="change_source('necromancy_club.html')">necromancy.club</a></li>
 </u1>
+<script>
+	function change_source(link) {
+		location.href = link
+	}
+</script>
