@@ -3,5 +3,10 @@
 the page you're looking for doesn't exist!
 <br />
 <br />
-tip: type "/freq" to find your frequently visited pages
+tip: go to <a onclick="change_source('freq.html')">/freq</a> to find your frequently visited pages
 </body>
+<script>
+	function change_source(link) {
+		location.href = link
+	}
+</script>

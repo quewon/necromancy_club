@@ -136,8 +136,13 @@ function load_update() {
 	s = s.split("/");
 	s = s[s.length-1];
 	s = s.replace(".html", "");
+	s = links[s];
 
-	search_bar.value = links[s];
+	search_bar.value = s;
+
+	if (s != search_history[search_history.length-1]) {
+		search_history.push(s);
+	}
 }
 
 function scroll_history() {

@@ -4,11 +4,10 @@ html {
 	--primary: #e8ded2;
 	--secondary: #5eaaa8;
 
-	/* newspaper
+	/* newspaper */
 	--bg: gray;
 	--primary: white;
-	--secondary: lightgreen;
-	*/
+	--secondary: lightgray;
 
 	--width: 500px;
 	--height: 500px;
