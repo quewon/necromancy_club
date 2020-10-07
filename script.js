@@ -80,6 +80,7 @@ function search() {
 
 //a function for other sites to use to go to different sites
 //and for hyperlinks in log
+//like this: parent.hyperlink('necromancy_club', 'main')
 function hyperlink(link, page) {
 	if (links[link] == undefined) {
 		link = 404

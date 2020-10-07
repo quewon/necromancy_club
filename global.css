@@ -37,6 +37,18 @@ a:hover {
 	color: var(--primary);
 }
 
+h1 {
+	font-family: Crete Round, serif;
+	margin-bottom: 5px;
+	text-align: center;
+}
+h1:hover {
+	cursor: pointer;
+}
+ul {
+	margin: 0;
+}
+
 button {
 	background-color: var(--primary);
 	height: var(--font-size);
