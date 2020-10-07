@@ -19,10 +19,10 @@
 #container {
 	width: var(--width);
 	height: var(--height);
-	top: 40%;
+	position:absolute;
+	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	position: absolute;
 }
 
 #log {
@@ -45,73 +45,28 @@
 	line-height: 1;
 }
 
+#search_type {
+	float: left;
+}
+
 #search_button {
 	border-left: 1px solid var(--bg);
-	display: inline-block;
-	right: 0;
-	position: absolute;
+	float: right;
 }
 
 #search_input {
 	background-color: var(--primary);
-	width: calc(-2.5 * var(--font-size) + var(--width));
 	color: inherit;
 	height: var(--font-size);
+	width: 39ch;
+	text-overflow: ellipsis;
 	padding: 0;
 	border: 0;
 	resize: none;
-	overflow: visible;
-	left: calc(var(--font-size) * 2.5);
-	position: absolute;
+	overflow: hidden;
 	font-size: inherit;
 	font-family: inherit;
-	line-height: inherit;
 }
-
-button {
-	background-color: var(--primary);
-	height: var(--font-size);
-	border: 0;
-	color: var(--bg);
-	padding: 0;
-	padding-left: var(--font-size);
-	padding-right: var(--font-size);
-	font-family: inherit;
-	font-size: calc(var(--font-size) - 5px);
-}
-button:hover {
-	background-color: var(--secondary);
-	color: var(--primary);
-	cursor: pointer;
-}
-button:active {
-	outline:none;
-	background-color: var(--bg);
-}
-
-*:focus {
-	outline:none;
-}
-
-textarea::selection {
-	background: var(--secondary);
-	color: var(--primary);
-}
-
-span {
-	height: inherit;
-	padding:0;
-	padding-left: var(--font-size);
-	padding-right: var(--font-size);
-	font-size: inherit;
-}
-span:hover {
-	cursor: default;
-}
-
-iframe {
-	height: calc(var(--height) - var(--font-size) - 1px);
-	width: inherit;
-	border: 0;
-	scrollbar-color: var(--bg) var(--primary);
+#search_bar:hover, #search_input:hover {
+	cursor: text;
 }

@@ -17,8 +17,8 @@
 
 			<div id="browser">
 				<div id="search_bar">
-					<span>></span>
-					<textarea id="search_input" spellcheck="false" class="noselect caretjs">necromancy.club</textarea>
+					<span id="search_type" style="padding-left: var(--font-size);padding-right: var(--font-size);">link></span>
+					<input id="search_input" spellcheck="false" class="noselect" autocomplete="false" maxlength="38" placeholder="powered by Spark Tech"></input>
 					<button type="button" id="search_button" class="noselect" onclick="search()">go!</button>
 					<iframe id="frame" src="websites/necromancy_club.html" onLoad="load_update()"></iframe>
 				</div>
@@ -29,12 +29,18 @@
 
 	<script src="dialog.js"></script>
 	<script src="script.js"></script>
+	<script src="websites/caret.js"></script>
 	<script>
 		search_bar.addEventListener("keypress", function(e) { key(e)});
 		search_bar.addEventListener("keydown", function(e) { keyd(e)});
+		document.getElementById("search_bar").onclick = function() {
+			search_bar.focus();
+		};
 
+		//CARET.init();
+		//window.addEventListener("input", function() { CARET.update() });
+
+		search_input.value = links.necromancy_club;
 		screen('browser');
-		//screen('log');
-		//log(dialog.LOG0);
 	</script>
 </html>

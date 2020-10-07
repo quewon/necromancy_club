@@ -100,6 +100,7 @@ function keyd(e) {
 
 var search_bar = document.getElementById("search_input");
 var frame = document.getElementById("frame");
+var search_type = document.getElementById("search_type");
 var search_history = ["necromancy.club"];
 var sh_value = 0;
 var links = {
@@ -120,6 +121,10 @@ function search() {
 	if (s != search_history[search_history.length-1]) {
 		search_history.push(s);
 	}
+	search_type.textContent = 'link>'
+	if (s == '/freq') {
+		search_type.textContent = 'ctrl>'
+	}
 
 	let link_key = Object.keys(links).find(key => links[key] === s);
 
@@ -138,10 +143,14 @@ function load_update() {
 	s = s.replace(".html", "");
 	s = links[s];
 
-	search_bar.value = s;
+	if (s != undefined) { search_bar.value = s; }
 
 	if (s != search_history[search_history.length-1]) {
 		search_history.push(s);
+	}
+	search_type.textContent = 'link>'
+	if (s == '/freq') {
+		search_type.textContent = 'ctrl>'
 	}
 }
 

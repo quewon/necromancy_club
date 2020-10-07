@@ -1,4 +1,5 @@
 <link href="https://fonts.googleapis.com/css2?family=Crete+Round:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="global.css">
 <style>
 	h1 {
@@ -8,9 +9,6 @@
 	}
 	h1:hover {
 		cursor: pointer;
-	}
-
-	#container {
 	}
 
 	#topbar {
@@ -38,78 +36,124 @@
 		padding: 5px;
 		width: 60%;
 	}
+
+	.brief {
+		border: 1px solid var(--primary);
+		width: 50%;
+		height: 50%;
+		margin: auto;
+		margin-top: 10%;
+		padding: var(--font-size);
+		line-height: 1.3;
+	}
+
+	#passwordbar, #emailbar {
+		width: inherit;
+		top: 40%;
+		position: absolute;
+	}
+
+	#password {
+		height: var(--font-size);
+	}
 </style>
 <body>
-	<h1>the necromancy club</h1>
+	<h1 onclick="post('main')">the necromancy club</h1>
 
-	<div id="topbar">
-		<a onclick="post('faq')">FAQ</a> / <a onclick="post('members')">members</a> / <a onclick="post('contact')">contact</a>
+	<div id="protected" style="display:none">
+
+		<div id="topbar">
+			<a onclick="post('faq')">FAQ</a> / <a onclick="post('members')">members</a> / <a onclick="post('contact')">contact</a>
+		</div>
+
+		<div>
+			<div id="sidebar">
+				'08 december
+				<ul>
+					<li><a onclick="post(1)">week one</a></li>
+					<li><a onclick="post(2)">week two</a></li>
+					<li><a onclick="post(3)">week three</a></li>
+					<li><a onclick="post(4)">week four</a></li>
+				</ul>
+				'09 january
+				<ul>
+					<li><a onclick="post(5)">week one</a></li>
+					<li><a onclick="post(6)">week two</a></li>
+					<li><a onclick="post(7)">week three</a></li>
+					<li><a onclick="post(8)">week four</a></li>
+				</ul>
+				'09 february
+				<ul>
+					<li><a onclick="post(9)">week one</a></li>
+					<li><a onclick="post(10)">week two</a></li>
+					<li><a onclick="post(11)">week three</a></li>
+					<li><a onclick="post(12)">week four</a></li>
+				</ul>
+				'09 march
+				<ul>
+					<li><a onclick="post(13)">week one</a></li>
+					<li><a onclick="post(14)">week two</a></li>
+					<li><a onclick="post(15)">week three</a></li>
+					<li><a onclick="post(16)">week four</a></li>
+				</ul>
+				'09 april
+				<ul>
+					<li><a onclick="post(17)">week one</a></li>
+					<li><a onclick="post(18)">week two</a></li>
+					<li><a onclick="post(19)">week three</a></li>
+					<li><a onclick="post(20)">week four</a></li>
+				</ul>
+				'09 may
+				<ul>
+					<li><a onclick="post(21)">week one</a></li>
+					<li><a onclick="post(22)">week two</a></li>
+					<li><a onclick="post(23)">week three</a></li>
+					<li><a onclick="post(24)">week four</a></li>
+				</ul>
+				'09 june
+				<ul>
+					<li><a onclick="post(25)">week one</a></li>
+					<li><a onclick="post(26)">week two</a></li>
+					<li><a onclick="post(27)">week three</a></li>
+					<li><a onclick="post(28)">week four</a></li>
+				</ul>
+				'09 july
+				<ul>
+					<li><a onclick="post(29)">week one</a></li>
+					<li><a onclick="post(30)">week two</a></li>
+					<li><a onclick="post(31)">week three</a></li>
+				</ul>
+			</div>
+			<div id="container"></div>
+		</div>
+
 	</div>
 
-	<div>
-		<div id="sidebar">
-			'08 december
-			<ul>
-				<li><a onclick="post(1)">week one</a></li>
-				<li><a onclick="post(2)">week two</a></li>
-				<li><a onclick="post(3)">week three</a></li>
-				<li><a onclick="post(4)">week four</a></li>
-			</ul>
-			'09 january
-			<ul>
-				<li><a onclick="post(5)">week one</a></li>
-				<li><a onclick="post(6)">week two</a></li>
-				<li><a onclick="post(7)">week three</a></li>
-				<li><a onclick="post(8)">week four</a></li>
-			</ul>
-			'09 february
-			<ul>
-				<li><a onclick="post(9)">week one</a></li>
-				<li><a onclick="post(10)">week two</a></li>
-				<li><a onclick="post(11)">week three</a></li>
-				<li><a onclick="post(12)">week four</a></li>
-			</ul>
-			'09 march
-			<ul>
-				<li><a onclick="post(13)">week one</a></li>
-				<li><a onclick="post(14)">week two</a></li>
-				<li><a onclick="post(15)">week three</a></li>
-				<li><a onclick="post(16)">week four</a></li>
-			</ul>
-			'09 april
-			<ul>
-				<li><a onclick="post(17)">week one</a></li>
-				<li><a onclick="post(18)">week two</a></li>
-				<li><a onclick="post(19)">week three</a></li>
-				<li><a onclick="post(20)">week four</a></li>
-			</ul>
-			'09 may
-			<ul>
-				<li><a onclick="post(21)">week one</a></li>
-				<li><a onclick="post(22)">week two</a></li>
-				<li><a onclick="post(23)">week three</a></li>
-				<li><a onclick="post(24)">week four</a></li>
-			</ul>
-			'09 june
-			<ul>
-				<li><a onclick="post(25)">week one</a></li>
-				<li><a onclick="post(26)">week two</a></li>
-				<li><a onclick="post(27)">week three</a></li>
-				<li><a onclick="post(28)">week four</a></li>
-			</ul>
-			'09 july
-			<ul>
-				<li><a onclick="post(29)">week one</a></li>
-				<li><a onclick="post(30)">week two</a></li>
-				<li><a onclick="post(31)">week three</a></li>
-			</ul>
+	<div id="lock" class="brief">
+		<div id="um">This website is private.</div><br /><br />
+		<div id="passwordbar">
+			<input id="password" contenteditable spellcheck="false" placeholder="password" autocomplete="off"></input><button style="float:right" onclick="check_input()">go!</button>
+			<a onclick="screen('forgotyourpass')" style="font-size:0.8em">Forgot your password?</a>
 		</div>
-		<div id="container"></div>
+	</div>
+
+	<div id="forgotyourpass" style="display:none" class="brief">
+		<div>Enter an adminstrator email address.</div><br /><br />
+		<div id="emailbar">
+			<input id="email" contenteditable spellcheck="false" placeholder="admin@spark.inc" autocomplete="off"></input><button style="float:right" onclick="check_input()">go!</button>
+		</div>
+	</div>
+
+	<div id="thiscodeisawful" style="display:none" class="brief">
+		The password has been sent to the mailing address. We recommend changing your password to something more memorable... or writing it down on a piece of paper!<br />
+		<a onclick="screen('lock')" style='font-size:0.8em'>Back to the main page</a>
 	</div>
 </body>
 <script>
-	var container = document.getElementById('container');
+	var ncpassword = "iwillnotpracticenecromancy";
+	var admin_emails = ["eskebird@email.com"];
 	var posts = {
+		POSTmain: "main here",
 		POSTfaq: "what is necromancy? good question",
 		POSTmembers: "membersssss",
 		POSTcontact: "yeah u can contact me",
@@ -117,7 +161,62 @@
 		POST2: "[automatically purged post]",
 		POST3: "[automatically purged post]",
 	}
+
+	var container = document.getElementById('container');
+	var password = document.getElementById("password");
+	var email = document.getElementById("email");
+	var current_screen = "lock";
 	function post(num) {
 		container.textContent = posts["POST"+num];
 	}
+
+	function change_source(link) {
+		location.href = link
+	}
+
+	function screen(s) {
+		current_screen = s;
+		password.value = "";
+		email.value = "";
+		document.getElementById("lock").style.display = 'none';
+		document.getElementById("um").textContent = "This website is private."
+		document.getElementById("forgotyourpass").style.display = 'none';
+		document.getElementById("protected").style.display = 'none';
+		document.getElementById("thiscodeisawful").style.display = 'none';
+		document.getElementById("thiscodeisawful").innerHTML = "The password has been sent to the mailing address. We recommend changing your password to something more memorable... or writing it down on a piece of paper!<br /><a onclick='"+'screen("lock")'+"' style='font-size:0.8em'>Back to the main page</a>";
+
+		document.getElementById(s).style.display = 'block';
+	}
+	function check_input() {
+		if (current_screen == "lock") {
+			if (password.value == ncpassword) {
+				screen('protected')
+			} else {
+				document.getElementById("um").textContent = "Incorrect password."
+			}
+			password.value = "";
+		} else if (current_screen == "forgotyourpass") {
+			if (admin_emails.includes(email.value)) {
+				screen("thiscodeisawful");
+			} else {
+				screen("thiscodeisawful");
+				document.getElementById("thiscodeisawful").innerHTML = "Address is not an adminstrator address.<br /><a onclick='screen("+'"lock"'+")' style='font-size:0.8em'>Back to the main page</a>"
+			}
+		}
+	}
+
+	function key(e) {
+		let k = event.keyCode || event.which;
+		if (k==13) {
+			event.preventDefault();
+			check_input()
+		}
+		if (k==32) {
+			event.preventDefault()
+		}
+	}
+
+	password.addEventListener("keypress", function(e) { key(e) });
+	email.addEventListener("keypress", function(e) { key(e) });
+	post('main');
 </script>

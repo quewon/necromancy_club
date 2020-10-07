@@ -5,8 +5,8 @@ html {
 	--secondary: #5eaaa8;
 
 	/* newspaper */
-	--bg: gray;
-	--primary: white;
+	--bg: #808080;
+	--primary: #fff;
 	--secondary: lightgray;
 
 	--width: 500px;
@@ -25,4 +25,77 @@ a:hover {
 	background: var(--secondary);
 	color: var(--primary);
 	cursor: pointer;
+}
+
+*:focus {
+	outline:none;
+}
+
+*::selection {
+	background: var(--secondary);
+	color: var(--primary);
+}
+
+button {
+	background-color: var(--primary);
+	height: var(--font-size);
+	border: 0;
+	color: var(--bg);
+	padding: 0;
+	padding-left: var(--font-size);
+	padding-right: var(--font-size);
+	font-family: inherit;
+	font-size: calc(var(--font-size) - 5px);
+	display: inline-block;
+}
+button:hover {
+	background-color: var(--secondary);
+	color: var(--primary);
+	cursor: pointer;
+}
+button:active {
+	outline:none;
+	background-color: var(--bg);
+}
+
+span {
+	height: inherit;
+	padding:0;
+	font-size: inherit;
+	background-color: var(--primary);
+	color: var(--bg);
+	line-height:1;
+}
+input {
+	height: inherit;
+	padding:0;
+	font-size: var(--font-size);
+	background-color: var(--primary);
+	color: var(--bg);
+	min-width: var(--font-size);
+	line-height:1;
+	border:0;
+	font-family: inherit;
+	/* caret-color: var(--primary); */
+}
+input::placeholder {
+	color: var(--secondary);
+}
+
+iframe {
+	height: calc(var(--height) - var(--font-size) - 1px);
+	width: inherit;
+	border: 0;
+	scrollbar-color: var(--bg) var(--primary);
+}
+
+.caret {
+	background-color: transparent;
+	left: 24ch;
+	position:absolute;
+	animation: caret_blink 0.4s steps(1) infinite;
+}
+@keyframes caret_blink {
+	0% { opacity:1; }
+	50% { opacity:0; }
 }
