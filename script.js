@@ -72,16 +72,44 @@ function typer() {
 }
 
 function key(e) {
-	let k = event.keyCode;
+	let k = event.keyCode || event.which;
 
 	if (k===13) {
 		event.preventDefault();
-		search()
+		search();
+		sh_value = 0;
+	}
+}
+
+function keyd(e) {
+	let k = event.keyCode || event.which;
+
+	if (k===40) {
+		event.preventDefault();
+		if (sh_value>0) { sh_value--; }
+		scroll_history()
+	}
+	if (k===38) {
+		event.preventDefault();
+		if (sh_value<search_history.length-1) {
+			sh_value++;
+		}
+		scroll_history()
 	}
 }
 
 var search_bar = document.getElementById("search_input");
 var frame = document.getElementById("frame");
+var search_history = ["necromancy.club"];
+var sh_value = 0;
+var links = {
+	necromancy_club: "necromancy.club",
+	email: "email.com",
+	freq: "/freq"
+}
+
+var apples = 'apples';
+
 function search() {
 	let s = search_bar.value;
 	if (s.trim() == "") {
@@ -89,11 +117,23 @@ function search() {
 		return
 	}
 
+	update_link(s)
+}
+
+function update_link(s) {
 	if (s == "necromancy.club") {
-		frame.src = "necromancy_club.html"
+		frame.src = "websites/necromancy_club.html"
 	} else if (s == "/freq") {
-		frame.src = "freq.html"
+		frame.src = "websites/freq.html"
 	} else {
-		frame.src = "error.html"
+		frame.src = "websites/error.html"
 	}
+
+	if (s != search_history[search_history.length-1]) {
+		search_history.push(s);
+	}
+}
+
+function scroll_history() {
+	search_bar.value = search_history[search_history.length-1-sh_value];
 }

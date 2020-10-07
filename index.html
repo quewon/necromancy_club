@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>bones!!!</title>
 		<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="global.css">
+		<link rel="stylesheet" href="websites/global.css">
 		<link rel="stylesheet" href="style.css">
 	</head>
 
@@ -20,7 +20,7 @@
 					<span>></span>
 					<textarea id="search_input" spellcheck="false" class="noselect caretjs">necromancy.club</textarea>
 					<button type="button" id="search_button" class="noselect" onclick="search()">go!</button>
-					<iframe id="frame" src="necromancy_club.html"></iframe>
+					<iframe id="frame" src="websites/necromancy_club.html"></iframe>
 				</div>
 			</div>
 
@@ -30,7 +30,9 @@
 	<script src="dialog.js"></script>
 	<script src="script.js"></script>
 	<script>
+		window.addEventListener('message', function(e) {console.log(e.data)})
 		search_bar.addEventListener("keypress", function(e) { key(e)});
+		search_bar.addEventListener("keydown", function(e) { keyd(e)});
 
 		screen('browser');
 		//screen('log');
