@@ -117,10 +117,6 @@ function search() {
 		return
 	}
 
-	update_link(s)
-}
-
-function update_link(s) {
 	if (s != search_history[search_history.length-1]) {
 		search_history.push(s);
 	}
@@ -136,7 +132,12 @@ function update_link(s) {
 }
 
 function load_update() {
-	console.log(frame.contentWindow.location.href)
+	let s = frame.contentWindow.location.href;
+	s = s.split("/");
+	s = s[s.length-1];
+	s = s.replace(".html", "");
+
+	search_bar.value = links[s];
 }
 
 function scroll_history() {
