@@ -130,9 +130,10 @@
 	})
 	function check_input() {
 		if (password.value == parent.ncpassword) {
-			parent.hyperlink('necromancy_club', 'password-recovery-done')
+			document.getElementById("lock").style.display = "none";
+			document.getElementById("protected").style.display = "block";
 		} else {
-			status.textContent = "incorrect password."
+			status.innerHTML = "incorrect password."
 		}
 		password.value = "";
 	}
