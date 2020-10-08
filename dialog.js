@@ -28,5 +28,8 @@ but you aren't as bitter as you are bored. and when you're bored, your thoughts 
 <a onclick="screen('browser');hyperlink('necromancy_club')">the club</a>.`
 };
 
-var admin_emails = ["rosebirdman@email.com"];
-var ncpassword = "iwillnotpracticenecromancy";
+var nc = {
+	locked: true,
+	admin_emails: ["rosebirdman@email.com"],
+	password: "iwillnotpracticenecromancy"
+}
