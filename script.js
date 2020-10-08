@@ -58,7 +58,6 @@ var links = {
 	necromancy_club: "necromancy.club",
 	email: "email.com",
 	freq: "freq",
-	404: "404",
 	spark: "spark.com"
 }
 
@@ -83,32 +82,34 @@ function search() {
 //and for hyperlinks in log
 //like this: parent.hyperlink('necromancy_club', 'main')
 function hyperlink(link, page) {
-	if (links[link] == undefined) {
-		link = 404
-	}
+	if (links[link] != undefined) {
+		//change search bar value
+		search_bar.value = links[link];
+		if (page) {
+			search_bar.value += "/"+page;
+		}
 
-	//change search bar value
-	search_bar.value = links[link];
-	if (page) {
-		search_bar.value += "/"+page;
-	}
-
-	search_type.textContent = 'link>'
-	if (links[link] == links.freq || link == 404) {
-		search_type.textContent = 'ctrl>'
+		search_type.textContent = 'link>'
+		if (links[link] == links.freq) {
+			search_type.textContent = 'ctrl>'
+		}
 	}
 
 	//add search bar value to search history
-	if (link != 404 && search_bar.value != search_history[search_history.length-1]) {
+	if (search_bar.value != search_history[search_history.length-1]) {
 		search_history.push(search_bar.value);
 	}
 
 	//change frame source
-	let source = "websites/"+link;
-	if (!page) {
-		source += "/index.html"
+	if (links[link] != undefined) {
+		let source = "websites/"+link;
+		if (!page) {
+			source += "/index.html"
+		} else {
+			source += "/"+page+".html"
+		}
 	} else {
-		source += "/"+page+".html"
+		source = "websites/404/index.html"
 	}
 	frame.src = source;
 
