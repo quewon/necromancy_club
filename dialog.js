@@ -1,32 +1,24 @@
-var dialog = {
-	START:
-	`<b onclick="log(dialog.LOG0)">log me in, boss</b>`
-	,
-	LOG0:
-`you are <b onclick="log(dialog.LOG1)">unemployed</b>.`
-	,
-
-	LOG1:
+var dialog = {};
+dialog.START = `<b onclick="log(dialog.LOG0)">log me in, boss</b>`;
+dialog.LOG0 = `you are <b onclick="log(dialog.LOG1)">unemployed</b>.`;
+dialog.LOG1 =
 `you are unemployed.
 <br /><br />
-you used to be a researcher at <a onclick="screen('browser');hyperlink('spark', 'genetics')">Spark Genetics</a>. you studied rice, mainly, but had a foot in various plant-related projects. all those projects fell apart when the new management took over. <b onclick="log(dialog.LOG2)">years of work and funding down the drain</b>.`
-	,
-	LOG2:
+you used to be a researcher at <a onclick="screen('browser');hyperlink('spark', 'genetics')">Spark Genetics</a>. you studied rice, mainly, but had a foot in various plant-related projects. all those projects fell apart when the new management took over. <b onclick="log(dialog.LOG2)">years of work and funding down the drain</b>.`;
+dialog.LOG2 =
 `you are unemployed.
 <br /><br />
 you used to be a researcher at <a onclick="screen('browser');hyperlink('spark', 'genetics')">Spark Genetics</a>. you studied rice, mainly, but had a foot in various plant-related projects. all those projects fell apart when the new management took over. years of work and funding down the drain.
 <br /><br />
-but you aren't as bitter as you are bored. and when you're bored, your thoughts begin to drift towards <b onclick="log(dialog.LOG3)">your high school days</b>.`
-,
-LOG3:
+but you aren't as bitter as you are bored. and when you're bored, your thoughts begin to drift towards <b onclick="log(dialog.LOG3)">your high school days</b>.`;
+dialog.LOG3 =
 `you are unemployed.
 <br /><br />
 you used to be a researcher at <a onclick="screen('browser');hyperlink('spark', 'genetics')">Spark Genetics</a>. you studied rice, mainly, but had a foot in various plant-related projects. all those projects fell apart when the new management took over. years of work and funding down the drain.
 <br /><br />
 but you aren't as bitter as you are bored. and when you're bored, your thoughts begin to drift towards your high school days.
 <br /><br />
-<a onclick="screen('browser');hyperlink('necromancy_club')">the club</a>.`
-};
+<a onclick="screen('browser');hyperlink('necromancy_club')">the club</a>.`;
 
 var nc = {
 	locked: true,

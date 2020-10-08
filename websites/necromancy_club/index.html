@@ -133,6 +133,7 @@
 		if (password.value == parent.nc.password) {
 			document.getElementById("lock").style.display = "none";
 			document.getElementById("protected").style.display = "block";
+			parent.nc.locked = false
 		} else {
 			document.getElementById("status").textContent = "incorrect password.";
 		}
