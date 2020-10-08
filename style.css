@@ -47,7 +47,6 @@
 
 #search_button {
 	border-left: 1px solid var(--bg);
-	float: right;
 }
 
 #search_input {

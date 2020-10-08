@@ -60,6 +60,7 @@ button {
 	font-family: inherit;
 	font-size: calc(var(--font-size) - 5px);
 	display: inline-block;
+	float: right;
 }
 button:hover {
 	background-color: var(--secondary);
@@ -100,6 +101,12 @@ iframe {
 	width: inherit;
 	border: 0;
 	scrollbar-color: var(--bg) var(--primary);
+}
+
+.inputbar {
+	width: inherit;
+	top: 40%;
+	position: absolute;
 }
 
 .caret {
