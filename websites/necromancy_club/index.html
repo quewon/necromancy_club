@@ -129,9 +129,8 @@
 		}
 	})
 	function check_input() {
-		console.log('password entered');
 		if (password.value == parent.ncpassword) {
-			hyperlink('necromancy_club', 'password-recovery-done')
+			parent.hyperlink('necromancy_club', 'password-recovery-done')
 		} else {
 			status.textContent = "incorrect password."
 		}
