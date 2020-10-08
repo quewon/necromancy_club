@@ -58,7 +58,8 @@ var links = {
 	necromancy_club: "necromancy.club",
 	email: "email.com",
 	freq: "freq",
-	404: "404"
+	404: "404",
+	spark: "spark.com"
 }
 
 function search() {

@@ -111,7 +111,7 @@
 	</div>
 
 	<div id="lock" class="brief">
-		<div id="um">This website is private.</div><br /><br />
+		<div id="status">this website is private.</div><br /><br />
 		<div class="inputbar">
 			<input id="password" contenteditable spellcheck="false" placeholder="password" autocomplete="off"></input><button onclick="check_input()">go!</button>
 			<a onclick="parent.hyperlink('necromancy_club','password-recovery')" style="font-size:0.8em">Forgot your password?</a>
@@ -119,6 +119,20 @@
 	</div>
 </body>
 <script>
-	var ncpassword = "iwillnotpracticenecromancy";
-	var admin_emails = ["rosebirdman@email.com"];
+	var status = document.getElementById("status");
+
+	document.querySelector('input').addEventListener("keypress", function(e) {
+		let k = event.keyCode || event.which;
+		if (k===13) {
+			event.preventDefault();
+			check_input()
+		}
+	})
+	function check_input() {
+		if (password.value == parent.ncpassword) {
+			hyperlink('necromancy_club', 'password-recovery-done')
+		} else {
+			status.textContent = "incorrect password."
+		}
+	}
 </script>

@@ -20,8 +20,9 @@
 					<span id="search_type" style="padding-left: var(--font-size);padding-right: var(--font-size);">link></span>
 					<input id="search_input" spellcheck="false" class="noselect" autocomplete="false" maxlength="38" placeholder="powered by Spark Tech"></input>
 					<button type="button" id="search_button" class="noselect" onclick="search()">go!</button>
-					<iframe id="frame" src="websites/necromancy_club.html"></iframe>
+					<button type="button" class="quit" onclick="screen('log')">x</button>
 				</div>
+				<iframe id="frame" src="websites/necromancy_club.html"></iframe>
 			</div>
 
 		</div>
@@ -43,6 +44,5 @@
 		search_input.value = links.necromancy_club;
 		search();
 		log(dialog.LOG0);
-		screen('browser');
 	</script>
 </html>

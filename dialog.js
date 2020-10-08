@@ -1,15 +1,29 @@
 var dialog = {
 	LOG0:
-`you are the first person to arrive at the club meeting. which is funny, because you're ten minutes late.
-
-then again, it's been five years since the last meeting. taking a seat on a familiar plastic bench, you look around, taking in the view of your middle school campus covered in snow. you might be more nostalgic if <a onclick="log(dialog.LOG1)">the news</a> wasn't so grave.`
+`you are <b onclick="log(dialog.LOG1)">unemployed</b>.`
 	,
 
 	LOG1:
-`a member of the necromancy club has <a onclick="log(dialog.LOG2)">died</a>.`
+`you are unemployed.
+<br /><br />
+you used to be a researcher at <a onclick="screen('browser');hyperlink('spark', 'genetics')">Spark Genetics</a>. you studied rice, mainly, but had a foot in various plant-related projects. all those projects fell apart when the new management took over. <b onclick="log(dialog.LOG2)">years of work and funding down the drain</b>.`
 	,
 	LOG2:
-`another one, to be clear. it's as tragic as it is ironic. the necromancy club has never stopped haunting you, not after you moved away, not now that you're an adult. so it wasn't all that shocking, when you read <a onclick="browse('email.com')">the invitation</a>. almost like you had been anticipating something like this.`
+`you are unemployed.
+<br /><br />
+you used to be a researcher at <a onclick="screen('browser');hyperlink('spark', 'genetics')">Spark Genetics</a>. you studied rice, mainly, but had a foot in various plant-related projects. all those projects fell apart when the new management took over. years of work and funding down the drain.
+<br /><br />
+but you aren't as bitter as you are bored. and when you're bored, your thoughts begin to drift towards <b onclick="log(dialog.LOG3)">your high school days</b>.`
+,
+LOG3:
+`you are unemployed.
+<br /><br />
+you used to be a researcher at <a onclick="screen('browser');hyperlink('spark', 'genetics')">Spark Genetics</a>. you studied rice, mainly, but had a foot in various plant-related projects. all those projects fell apart when the new management took over. years of work and funding down the drain.
+<br /><br />
+but you aren't as bitter as you are bored. and when you're bored, your thoughts begin to drift towards your high school days.
+<br /><br />
+<a onclick="screen('browser');hyperlink('necromancy_club')">the club</a>.`
 };
 
 var admin_emails = ["rosebirdman@email.com"];
+var ncpassword = "iwillnotpracticenecromancy";

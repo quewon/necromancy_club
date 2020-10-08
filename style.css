@@ -27,6 +27,7 @@
 }
 
 #browser {
+	width: inherit;
 	height: inherit;
 	outline: 1px solid var(--primary);
 }
@@ -47,6 +48,8 @@
 
 #search_button {
 	border-left: 1px solid var(--bg);
+	right: calc(3ch + 1px);
+	position: absolute;
 }
 
 #search_input {
@@ -54,7 +57,6 @@
 	color: inherit;
 	height: var(--font-size);
 	width: 39ch;
-	text-overflow: ellipsis;
 	padding: 0;
 	border: 0;
 	resize: none;
@@ -64,4 +66,28 @@
 }
 #search_bar:hover, #search_input:hover {
 	cursor: text;
+}
+
+iframe {
+	height: calc(var(--height) - var(--font-size) - 1px);
+	width: inherit;
+	border: 0;
+	scrollbar-color: var(--bg) var(--primary);
+}
+
+.quit {
+	padding-left: 1ch;
+	padding-right: 1ch;
+	float: right;
+	border-left: 1px solid var(--bg);
+}
+
+b {
+	font-weight: normal;
+	color: var(--secondary);
+}
+b:hover {
+	background: var(--secondary);
+	color: var(--primary);
+	cursor: pointer;
 }
