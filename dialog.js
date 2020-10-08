@@ -1,4 +1,7 @@
 var dialog = {
+	START:
+	`<b onclick="log(dialog.LOG0)">log me in, boss</b>`
+	,
 	LOG0:
 `you are <b onclick="log(dialog.LOG1)">unemployed</b>.`
 	,
