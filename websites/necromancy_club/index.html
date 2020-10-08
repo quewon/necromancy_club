@@ -133,7 +133,9 @@
 			document.getElementById("lock").style.display = "none";
 			document.getElementById("protected").style.display = "block";
 		} else {
-			status.innerHTML = "incorrect password."
+			console.log(status.innerHTML);
+			status.innerHTML = "incorrect password.";
+			console.log(status.innerHTML)
 		}
 		password.value = "";
 	}
