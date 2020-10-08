@@ -120,7 +120,6 @@
 </body>
 <script>
 	var status = document.getElementById("status");
-
 	document.querySelector('input').addEventListener("keypress", function(e) {
 		let k = event.keyCode || event.which;
 		if (k===13) {
@@ -133,9 +132,10 @@
 			document.getElementById("lock").style.display = "none";
 			document.getElementById("protected").style.display = "block";
 		} else {
-			console.log(status.innerHTML);
-			status.innerHTML = "incorrect password.";
-			console.log(status.innerHTML)
+			console.log(status);
+			console.log(document.getElementById("status"));
+			console.log(status.textContent);
+			status.textContent = "incorrect password.";
 		}
 		password.value = "";
 	}
