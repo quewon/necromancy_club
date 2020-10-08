@@ -101,8 +101,8 @@ function hyperlink(link, page) {
 	}
 
 	//change frame source
+	let source = "websites/"+link;
 	if (links[link] != undefined) {
-		let source = "websites/"+link;
 		if (!page) {
 			source += "/index.html"
 		} else {
