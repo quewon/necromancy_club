@@ -66,7 +66,8 @@
 			img.className = "icon";
 			div.appendChild(img);
 
-			div.innerHTML += `<a onclick="parent.hyperlink('email','` + mail[i].code + `')">` + mail[i].title + `</a><br />` + mail[i].sender;
+			//div.innerHTML += `<a onclick="parent.hyperlink('email','` + mail[i].code + `')">` + mail[i].title + `</a><br />` + mail[i].sender;
+			div.innerHTML += `<a>`+ mail[i].title + `</a><br />` + mail[i].sender;
 			container.appendChild(div)
 		}
 	}
