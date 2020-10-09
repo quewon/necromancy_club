@@ -13,3 +13,19 @@ var nc = {
 	admin_emails: ["rosebirdman@email.com"],
 	password: "iwillnotpracticenecromancy"
 }
+
+var mail = {};
+mail.contacts = {
+	D: {
+		address: "d@spark.inc",
+		icon: "icons/d.jpg"
+	}
+}
+mail.inbox = [
+	{
+		title: "helloooo",
+		sender: "D",
+		content: "hi",
+		code: "DSPARKINC-HELLOOOO"
+	}
+];

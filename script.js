@@ -157,3 +157,9 @@ function log(t) {
 function clear_log() {
 	log_area.innerHTML = "";
 }
+
+// emails
+
+function email() {
+
+}

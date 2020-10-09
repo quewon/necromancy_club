@@ -11,10 +11,21 @@
 	#header {
 		top: 0;
 		padding: var(--font-size);
+		border-bottom: 1px solid var(--secondary);
+		margin-bottom: var(--font-size);
+		width: calc(100% - 3 * var(--font-size));
+		position: fixed;
 	}
 	.inputbar {
-		top: var(--font-size);
-		right: var(--font-size);
+		position: relative;
+		display: inline-block;
+		float: right;
+	}
+
+	#container {
+		top: calc(4 * var(--font-size));
+		position: absolute;
+		width: calc(100% - var(--font-size));
 	}
 </style>
 
@@ -29,20 +40,18 @@
 </body>
 
 <script>
-	var mail = [
-	{
-		title: "helloooo",
-		sender_name: "D",
-		sender_address: "d@spark.inc",
-		content: "hi"
-	}
-];
-
 	function print_all_mail() {
+		let mail = parent.mail.inbox;
+		let contacts = parent.mail.contacts;
 		for (let i=0; i<mail.length; i++) {
 			var div = document.createElement("div");
 			div.className = "email";
-			div.innerHTML = `<a onclick="parent.hyperlink('email','` + mail[i].code + `')">` + mail[i].title + `</a><br />` + mail[i].sender_name;
+
+			let img = new Image(100,100);
+			img.src = contacts[mail[i].sender].icon;
+			div.appendChild(img);
+
+			div.innerHTML = `<a onclick="parent.hyperlink('email','` + mail[i].code + `')">` + mail[i].title + `</a><br />` + mail[i].sender;
 			document.getElementById("container").appendChild(div);
 		}
 	}
