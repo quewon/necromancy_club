@@ -151,7 +151,11 @@ function log(t) {
 		parent.removeChild(b[0])
 	}
 
-	log_area.innerHTML += "<br /><br />" + t;
+	if (log_area.innerHTML != "") {
+		log_area.innerHTML += "<br /><br />" + t;
+	} else {
+		log_area.innerHTML = t;
+	}
 }
 
 function clear_log() {
