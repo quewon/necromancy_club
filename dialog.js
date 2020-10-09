@@ -20,7 +20,7 @@ mail.contacts = {
 		address: "d@spark.inc",
 		icon: "icons/d.jpg"
 	},
-	SparkTech-Service: {
+	SparkTech_Service: {
 		address: "noreply@spark.inc",
 		icon: "icons/spark.jpg"
 	}
@@ -33,7 +33,7 @@ mail.inbox = [
 	},
 	{
 		title: "necromancy.club password recovery",
-		sender: "Spark Tech - Service",
+		sender: "Spark Tech _ Service",
 		code: "noreplysparkinc-n-0"
 	}
 ];
