@@ -16,6 +16,10 @@ var nc = {
 
 var mail = {};
 mail.contacts = {
+	player: {
+		address: "rosebirdman@email.com",
+		icon: "icons/d.jpg"
+	},
 	D: {
 		address: "d@spark.inc",
 		icon: "icons/d.jpg"
@@ -25,15 +29,11 @@ mail.contacts = {
 		icon: "icons/spark.jpg"
 	}
 }
-mail.inbox = [
-	{
-		title: "invitation",
-		sender: "D",
-		code: "dsparkinc-i-0"
-	},
-	{
-		title: "necromancy.club password recovery",
-		sender: "Spark Tech _ Service",
-		code: "noreplysparkinc-n-0"
-	}
-];
+
+dialog.MAIL1 =
+`dear rosie,
+<br /><br />
+come to the middle school next thursday, six pm, at the benches behind the courtyard. our founder has passed away. it won't be the funeral; the bayers have requested to hold it privately. but i hope we can come together once again in memory of the person that brought us together.
+<br /><br />
+- d`;
+mail.create("D", "invitation", dialog.MAIL1);

@@ -162,8 +162,43 @@ function clear_log() {
 	log_area.innerHTML = "";
 }
 
-// emails
+// sites
 
-function email() {
+mail.inbox = [
+	{
+		title: "invitation",
+		sender: "D",
+		read: false,
+		content: ""
+	},
+	{
+		title: "necromancy.club password recovery",
+		sender: "Spark Tech _ Service",
+	}
+];
+mail.trash = [];
+mail.starred = [];
 
+mail.create = function(sender, title, content, read) {
+	let email = {};
+
+	email.sender = sender || "Spark Tech _ Service";
+	email.title = title || "[untitled]";
+	email.content = content || "[unwritten]";
+	email.read = read || false;
+
+	let contact = mail.contacts[sender.replace(/\s/g, "")];
+	let player_contact = mail.contacts.player;
+
+	email.sender_address = contact.address;
+	email.sender_icon = contact.icon;
+	email.receiver_address = player_contact.address;
+	email.receiver_icon = player_contact.icon;
+
+	mail.inbox.push(email);
+};
+
+mail.move = function(i, a, b) {
+	mail[b].push(mail.inbox[i]);
+	mail[a].splice(i,1)
 }

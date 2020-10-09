@@ -40,36 +40,76 @@
 		filter: grayscale(1);
 		*/
 	}
+
+	#inbox {
+		margin:0;
+		display:inline;
+	}
+	#inbox:hover {
+		cursor: pointer;
+	}
+
+	#mail_window {
+		border: 1px dotted var(--primary);
+	}
+	#mail_header {
+		border-bottom: 1px solid var(--primary);
+		margin-bottom: var(--font-size);
+	}
+	#mail_content, #mail_header {
+		padding: var(--font-size);
+	}
 </style>
 
 <body>
 	<div id="header">
-		inbox
+		<p id="inbox" onclick="print_all_mail()">inbox</p>
 		<div class="inputbar">
 			<input id="search" contenteditable spellcheck="false" placeholder="search mail" autocomplete="off"></input><button onclick="check_input()">go!</button>
 		</div>
 	</div>
-	<div id="container"></div>
+	<div id="container">
+		<div id="mail_window">
+			<div id="mail_header"></div>
+			<div id="mail_content"></div>
+		</div>
+
+		<div id="inbox_window">
+		</div>
+	</div>
 </body>
 
 <script>
-	var container = document.getElementById("container");
+	var inbox_window = document.getElementById("inbox_window");
+	var mail_window = document.getElementById("mail_window");
+	var mail_header = document.getElementById("mail_header");
+	var mail_content = document.getElementById("mail_content");
 	function print_all_mail() {
+		inbox_window.style.display = 'block';
+		mail_window.style.display = 'none';
+
 		let mail = parent.mail.inbox;
-		let contacts = parent.mail.contacts;
 		for (let i=mail.length-1; i=0; i--) {
 			var div = document.createElement("div");
 			div.className = "email";
 
 			let img = new Image(100,100);
-			img.src = contacts[mail[i].sender.replace(/\s/g, "")].icon;
+			img.src = mail[i].sender_icon;
 			img.className = "icon";
 			div.appendChild(img);
 
-			//div.innerHTML += `<a onclick="parent.hyperlink('email','` + mail[i].code + `')">` + mail[i].title + `</a><br />` + mail[i].sender;
-			div.innerHTML += `<a>`+ mail[i].title + `</a><br />` + mail[i].sender;
-			container.appendChild(div)
+			div.innerHTML += `<a onclick="show('` + i + `')">`+ mail[i].title + `</a><br />` + mail[i].sender;
+			inbox_window.appendChild(div)
 		}
+	}
+
+	function show(i) {
+		inbox_window.style.display = 'none';
+		mail_window.style.display = 'block';
+
+		let mail = parent.mail.inbox[i];
+		mail_header.innerHTML = mail.title + "<br />" + mail.sender + " [" + mail.sender_address + "]";
+		mail_content.innerHTML = mail.content;
 	}
 
 	print_all_mail()
