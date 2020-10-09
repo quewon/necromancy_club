@@ -36,4 +36,3 @@ dialog.MAIL1 =
 come to the middle school next thursday, six pm, at the benches behind the courtyard. our founder has passed away. it won't be the funeral; the bayers have requested to hold it privately. but i hope we can come together once again in memory of the person that brought us together.
 <br /><br />
 - d`;
-mail.create("D", "invitation", dialog.MAIL1);
