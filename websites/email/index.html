@@ -62,9 +62,7 @@
 			div.className = "email";
 
 			let img = new Image(100,100);
-			console.log(contacts);
-			console.log(i, mail[i].sender.trim());
-			img.src = contacts[mail[i].sender.trim()].icon;
+			img.src = contacts[mail[i].sender.replace(/\s/g, "")].icon;
 			img.className = "icon";
 			div.appendChild(img);
 
