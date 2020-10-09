@@ -51,7 +51,7 @@
 			img.src = contacts[mail[i].sender].icon;
 			div.appendChild(img);
 
-			//div.innerHTML = `<a onclick="parent.hyperlink('email','` + mail[i].code + `')">` + mail[i].title + `</a><br />` + mail[i].sender;
+			div.innerHTML += `<a onclick="parent.hyperlink('email','` + mail[i].code + `')">` + mail[i].title + `</a><br />` + mail[i].sender;
 			document.getElementById("container").appendChild(div);
 		}
 	}
