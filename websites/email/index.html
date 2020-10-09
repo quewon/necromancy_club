@@ -27,6 +27,16 @@
 		position: absolute;
 		width: calc(100% - var(--font-size));
 	}
+
+	.icon {
+		position: absolute;
+		width: calc(2*var(--font-size));
+		height: calc(2*var(--font-size));
+		right: var(--font-size);
+		filter: gray;
+		-webkit-filter: grayscale(1);
+		filter: grayscale(1);
+	}
 </style>
 
 <body>
@@ -49,6 +59,7 @@
 
 			let img = new Image(100,100);
 			img.src = contacts[mail[i].sender].icon;
+			img.className = "icon";
 			div.appendChild(img);
 
 			div.innerHTML += `<a onclick="parent.hyperlink('email','` + mail[i].code + `')">` + mail[i].title + `</a><br />` + mail[i].sender;
