@@ -85,9 +85,9 @@ function hyperlink(link, page) {
 	let page_not_found = false;
 	if (links[link] == undefined) {
 		page_not_found = true
-	} else {
+	} else if (page) {
 		let http = new XMLHttpRequest();
-		http.open('HEAD', link+"/"+page+".html");
+		http.open('HEAD', link+"/"+page+".html", true);
 		http.send();
 		if (http.status == 404) {
 			page_not_found = true
