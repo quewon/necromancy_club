@@ -10,7 +10,7 @@ dialog.LOG3 =
 
 var nc = {
 	locked: true,
-	admin_emails: ["rosebirdman@email.com"],
+	admin_emails: ["rosebirdman@email.com", "d@spark.inc"],
 	password: "iwillnotpracticenecromancy"
 }
 
@@ -19,13 +19,21 @@ mail.contacts = {
 	D: {
 		address: "d@spark.inc",
 		icon: "icons/d.jpg"
+	},
+	SparkTech-Service: {
+		address: "noreply@spark.inc",
+		icon: "icons/spark.jpg"
 	}
 }
 mail.inbox = [
 	{
-		title: "helloooo",
+		title: "invitation",
 		sender: "D",
-		content: "hi",
-		code: "DSPARKINC-HELLOOOO"
+		code: "dsparkinc-i-0"
+	},
+	{
+		title: "necromancy.club password recovery",
+		sender: "Spark Tech - Service",
+		code: "noreplysparkinc-n-0"
 	}
 ];

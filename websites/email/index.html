@@ -30,12 +30,15 @@
 
 	.icon {
 		position: absolute;
-		width: calc(2*var(--font-size));
-		height: calc(2*var(--font-size));
-		right: var(--font-size);
+		width: calc(4*var(--font-size));
+		height: calc(4*var(--font-size));
+		right: 1;
+		top: 1;
+		/*
 		filter: gray;
 		-webkit-filter: grayscale(1);
 		filter: grayscale(1);
+		*/
 	}
 </style>
 
@@ -50,20 +53,21 @@
 </body>
 
 <script>
+	var container = document.getElementById("container");
 	function print_all_mail() {
 		let mail = parent.mail.inbox;
 		let contacts = parent.mail.contacts;
-		for (let i=0; i<mail.length; i++) {
+		for (let i=mail.length-1; i>0; i--) {
 			var div = document.createElement("div");
 			div.className = "email";
 
 			let img = new Image(100,100);
-			img.src = contacts[mail[i].sender].icon;
+			img.src = contacts[mail[i].sender.trim()].icon;
 			img.className = "icon";
 			div.appendChild(img);
 
 			div.innerHTML += `<a onclick="parent.hyperlink('email','` + mail[i].code + `')">` + mail[i].title + `</a><br />` + mail[i].sender;
-			document.getElementById("container").appendChild(div);
+			container.appendChild(div)
 		}
 	}
 
