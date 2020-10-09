@@ -82,7 +82,19 @@ function search() {
 //and for hyperlinks in log
 //like this: parent.hyperlink('necromancy_club', 'main')
 function hyperlink(link, page) {
-	if (links[link] != undefined) {
+	let page_not_found = false;
+	if (links[link] == undefined) {
+		page_not_found = true
+	} else {
+		let http = new XMLHttpRequest();
+		http.open('HEAD', link+"/"+page+".html");
+		http.send();
+		if (http.status == 404) {
+			page_not_found = true
+		}
+	}
+
+	if (!page_not_found) {
 		//change search bar value
 		search_bar.value = links[link];
 		if (page) {
@@ -102,7 +114,7 @@ function hyperlink(link, page) {
 
 	//change frame source
 	let source = "websites/"+link;
-	if (links[link] != undefined) {
+	if (!page_not_found) {
 		if (!page) {
 			source += "/index.html"
 		} else {
@@ -122,10 +134,26 @@ function scroll_history() {
 
 // dialogs
 
-function log(t, link) {
+var log_area = document.getElementById("logtext");
+
+function log(t) {
 	if (current_screen != 'log') {
 		screen('log');
 	}
-	let textarea = document.getElementById("logtext");
-	textarea.innerHTML = t;
+
+	//remove previous log tags
+	let b = document.getElementsByTagName('b');
+	while (b.length) {
+		let parent = b[0].parentNode;
+		while (b[0].firstChild) {
+			parent.insertBefore(b[0].firstChild, b[0])
+		}
+		parent.removeChild(b[0])
+	}
+
+	log_area.innerHTML += "<br /><br />" + t;
+}
+
+function clear_log() {
+	log_area.innerHTML = "";
 }

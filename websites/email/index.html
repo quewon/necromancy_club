@@ -1,1 +1,51 @@
+<link href="https://fonts.googleapis.com/css2?family=Crete+Round:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://quewon.github.io/necromancy_club/global.css">
+
+<style>
+	.email {
+		border: 1px solid var(--secondary);
+		margin-bottom: var(--font-size);
+		padding: var(--font-size);
+	}
+	#header {
+		top: 0;
+		padding: var(--font-size);
+	}
+	.inputbar {
+		top: var(--font-size);
+		right: var(--font-size);
+	}
+</style>
+
+<body>
+	<div id="header">
+		inbox
+		<div class="inputbar">
+			<input id="search" contenteditable spellcheck="false" placeholder="search mail" autocomplete="off"></input><button onclick="check_input()">go!</button>
+		</div>
+	</div>
+	<div id="container"></div>
+</body>
+
+<script>
+	var mail = [
+	{
+		title: "helloooo",
+		sender_name: "D",
+		sender_address: "d@spark.inc",
+		content: "hi"
+	}
+];
+
+	function print_all_mail() {
+		for (let i=0; i<mail.length; i++) {
+			var div = document.createElement("div");
+			div.className = "email";
+			div.innerHTML = `<a onclick="parent.hyperlink('email','` + mail[i].code + `')">` + mail[i].title + `</a><br />` + mail[i].sender_name;
+			document.getElementById("container").appendChild(div);
+		}
+	}
+
+	print_all_mail()
+</script>

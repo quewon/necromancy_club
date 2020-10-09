@@ -1,3 +1,12 @@
+/*
+@media only screen and (max-device-width: 480px) {
+	html {
+		--width: 70%;
+		--height: 70%;
+	}
+}
+*/
+
 .noselect {
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     -webkit-touch-callout: none;
@@ -47,6 +56,7 @@
 }
 
 #search_button {
+	border: 0;
 	border-left: 1px solid var(--bg);
 	right: calc(3ch + 1px);
 	position: absolute;
