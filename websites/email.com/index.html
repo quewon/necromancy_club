@@ -4,17 +4,21 @@
 
 <style>
 	.email {
-		border: 1px solid var(--secondary);
+		border: 1px solid var(--primary);
 		margin-bottom: var(--font-size);
 		padding: var(--font-size);
+	}
+	.read {
+		border: 1px solid var(--secondary);
 	}
 	#header {
 		top: 0;
 		padding: var(--font-size);
-		border-bottom: 1px solid var(--secondary);
+		border-bottom: 1px solid var(--primary);
 		margin-bottom: var(--font-size);
 		width: calc(100% - 3 * var(--font-size));
 		position: fixed;
+		background-color: var(--bg);
 	}
 	.inputbar {
 		position: relative;
@@ -72,6 +76,7 @@
 				<div id="mail_title"></div>
 			</div>
 			<div id="mail_content"></div>
+			<a style='font-size:0.8em'>Back to inbox</a>
 		</div>
 
 		<div id="inbox_window">
@@ -88,6 +93,9 @@
 	var title = document.getElementById("title");
 
 	title.addEventListener("click", function() {
+		screen(inbox_window)
+	});
+	document.querySelector('a').addEventListener("click", function() {
 		screen(inbox_window)
 	});
 
@@ -130,9 +138,12 @@
 
 		console.log(mail);
 
-		mail_header.innerHTML = "from: " + mail.sender + " <" + mail.sender_address + ">";
-		mail_header.innerHTML += "<br />to: " + mail.receiver + " <" + mail.receiver_address + ">";
+		mail_header.innerHTML = "from: " + mail.sender + " \<" + mail.sender_address + "\>";
+		mail_header.innerHTML += "<br />to: " + mail.receiver + " \<" + mail.receiver_address + "\>";
 		mail_content.innerHTML = mail.content;
+
+		mail.read = true;
+		document.getElementsByClassName("email")[i].className = "email read";
 	}
 
 	print_all_mail()

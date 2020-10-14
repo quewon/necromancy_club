@@ -182,6 +182,7 @@ mail.create = function(sender, title, content, read) {
 
 	email.sender_address = contact.address;
 	email.sender_icon = contact.icon;
+	email.receiver = "me";
 	email.receiver_address = player_contact.address;
 	email.receiver_icon = player_contact.icon;
 
