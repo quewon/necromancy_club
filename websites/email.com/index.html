@@ -159,7 +159,7 @@
 
 	function star() {
 		for (let i=0; i<selected_mails.length; i++) {
-			parent.mail.inbox[i].starred = true;
+			parent.mail.inbox[selected_mails[i]].starred = true;
 		}
 	}
 	function trash() {
@@ -170,7 +170,7 @@
 	}
 	function unread() {
 		for (let i=0; i<selected_mails.length; i++) {
-			parent.mail.inbox[i].read = false;
+			parent.mail.inbox[selected_mails[i]].read = false;
 		}
 	}
 

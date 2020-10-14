@@ -190,7 +190,7 @@ mail.create = function(sender, title, content, read) {
 };
 
 mail.delete = function(i) {
-	mail[b].unshift(mail.inbox[i]);
+	mail.trash.unshift(mail.inbox[i]);
 
 	if (mail.inbox[i].starred) {
 		//delete it from starred too
