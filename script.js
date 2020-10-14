@@ -7,6 +7,10 @@ var screens = {
 var current_screen;
 
 function screen(screen_name) {
+	if (current_screen == screen_name) {
+		return
+	}
+
 	let keys = Object.keys(screens)
 	let length = keys.length;
 
@@ -69,20 +73,21 @@ function search() {
 		return
 	}
 
-	s = s.split("/");
-	s[0] = Object.keys(links).find(key => links[key] === s[0]);
-
-	if (s.length == 1) {
-		hyperlink(s[0])
-	} else {
-		hyperlink(s[0], s[1])
-	}
+	hyperlink(s);
 }
 
 //a function for other sites to use to go to different sites
 //and for hyperlinks in log
-//like this: parent.hyperlink('necromancy_club', 'main')
-function hyperlink(link, page) {
+function hyperlink(link) {
+	screen('browser');
+
+	link = link.split("/");
+
+	let page = link[1];
+	link = link[0];
+
+	console.log('link', 'page');
+
 	let page_not_found = false;
 	if (!links.includes(link)) {
 		page_not_found = true
