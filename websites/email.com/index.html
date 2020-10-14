@@ -66,12 +66,12 @@
 	<div id="header">
 		<p id="title">inbox</p>
 		<div class="inputbar">
-			<input id="search" contenteditable spellcheck="false" placeholder="search mail" autocomplete="off"></input><button onclick="check_input()">go!</button>
+			<input id="search" contenteditable spellcheck="false" placeholder="search inbox" autocomplete="off"></input><button onclick="check_input()">go!</button>
 		</div>
 	</div>
 	<div id="container">
 		<div id="mail_controls">
-			<a onclick="unread()">mark as unread</a> | <a onclick="star()">star</a> | <a onclick="trash()">trash</a>
+			<a onclick="unread()">mark as read</a> | <a onclick="star()">star</a> | <a onclick="trash()">trash</a>
 		</div>
 		<div id="mail_window">
 			<div id="mail_header">
@@ -165,7 +165,7 @@
 	function trash() {
 		for (let i=selected_mails.length-1; i>=0; i--) {
 			parent.mail.delete(selected_mails[i]);
-			screen(inbox_window);
+			print_all_mail()
 		}
 	}
 	function unread() {

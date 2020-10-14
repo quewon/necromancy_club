@@ -83,7 +83,7 @@ span {
 	color: var(--bg);
 	line-height:1;
 }
-input {
+input[type=text] {
 	height: inherit;
 	padding:0;
 	font-size: var(--font-size);
@@ -95,7 +95,7 @@ input {
 	font-family: inherit;
 	/* caret-color: var(--primary); */
 }
-input::placeholder {
+input[type=text]::placeholder {
 	color: var(--secondary);
 }
 
