@@ -107,7 +107,7 @@
 			var div = document.createElement("div");
 			div.className = "email";
 
-			if (mail.read) {
+			if (mail[i].read) {
 				div.className += " read";
 			}
 
@@ -139,8 +139,6 @@
 
 		let mail = parent.mail.inbox[i];
 		mail_title = mail.title;
-
-		console.log(mail);
 
 		mail_header.innerHTML = "from: " + mail.sender + " \<" + mail.sender_address + "\>";
 		mail_header.innerHTML += "<br />to: " + mail.receiver + " \<" + mail.receiver_address + "\>";
