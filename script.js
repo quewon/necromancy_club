@@ -86,8 +86,6 @@ function hyperlink(link) {
 	let page = link[1];
 	link = link[0];
 
-	console.log('link', 'page');
-
 	let page_not_found = false;
 	if (!links.includes(link)) {
 		page_not_found = true

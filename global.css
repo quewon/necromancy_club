@@ -1,14 +1,15 @@
 html {
-	/* soda */
-	--bg: #056676;
-	--primary: #e8ded2;
-	--secondary: #5eaaa8;
-
 	/* newspaper */
 	--bg: #808080;
 	--primary: #fff;
 	--secondary: lightgray;
 	--links: #ffc524;
+
+	/* soda */
+	--bg: #d62828; /* contrast with primary */
+	--primary: #eae2b7;
+	--secondary: #F3AD16; /* close to bg */
+	--links: #ffe236; /*contrast with everything */
 
 	--width: 500px;
 	--height: 500px;
