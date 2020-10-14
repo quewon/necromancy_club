@@ -165,18 +165,7 @@ function clear_log() {
 
 // sites
 
-mail.inbox = [
-	{
-		title: "invitation",
-		sender: "D",
-		read: false,
-		content: ""
-	},
-	{
-		title: "necromancy.club password recovery",
-		sender: "Spark Tech _ Service",
-	}
-];
+mail.inbox = [];
 mail.trash = [];
 mail.starred = [];
 

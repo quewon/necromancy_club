@@ -34,11 +34,7 @@
 		height: calc(4*var(--font-size));
 		right: 1;
 		top: 1;
-		/*
-		filter: gray;
-		-webkit-filter: grayscale(1);
-		filter: grayscale(1);
-		*/
+		border
 	}
 
 	#inbox {
@@ -53,8 +49,10 @@
 		border: 1px dotted var(--primary);
 	}
 	#mail_header {
-		border-bottom: 1px solid var(--primary);
-		margin-bottom: var(--font-size);
+		border-bottom: 1px dotted var(--primary);
+	}
+	#mail_title {
+		font-size: 1.5em;
 	}
 	#mail_content, #mail_header {
 		padding: var(--font-size);
@@ -63,14 +61,16 @@
 
 <body>
 	<div id="header">
-		<p id="inbox" onclick="print_all_mail()">inbox</p>
+		<p id="title">inbox</p>
 		<div class="inputbar">
 			<input id="search" contenteditable spellcheck="false" placeholder="search mail" autocomplete="off"></input><button onclick="check_input()">go!</button>
 		</div>
 	</div>
 	<div id="container">
 		<div id="mail_window">
-			<div id="mail_header"></div>
+			<div id="mail_header">
+				<div id="mail_title"></div>
+			</div>
 			<div id="mail_content"></div>
 		</div>
 
@@ -82,8 +82,14 @@
 <script>
 	var inbox_window = document.getElementById("inbox_window");
 	var mail_window = document.getElementById("mail_window");
+	var mail_title = document.getElementById("mail_title");
 	var mail_header = document.getElementById("mail_header");
 	var mail_content = document.getElementById("mail_content");
+	var title = document.getElementById("title");
+
+	title.addEventListener("click", function() {
+		screen(inbox_window)
+	});
 
 	function print_all_mail() {
 		screen(inbox_window);
@@ -117,11 +123,12 @@
 	}
 
 	function show(i) {
-		inbox_window.style.display = 'none';
-		mail_window.style.display = 'block';
+		screen(mail_window);
 
 		let mail = parent.mail.inbox[i];
-		mail_header.innerHTML = mail.title + "<br />" + mail.sender + " [" + mail.sender_address + "]";
+		mail_title = mail.title;
+		mail_header.innerHTML = "from: " + mail.sender + " <" + mail.sender_address + ">";
+		mail_header.innerHTML += "<br />to: " + mail.receiver + " <" + mail.receiver_address + ">";
 		mail_content.innerHTML = mail.content;
 	}
 
