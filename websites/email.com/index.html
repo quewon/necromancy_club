@@ -49,9 +49,6 @@
 		cursor: pointer;
 	}
 
-	#mail_window {
-		border: 1px dotted var(--primary);
-	}
 	#mail_header {
 		border-bottom: 1px dotted var(--primary);
 	}
@@ -60,6 +57,7 @@
 	}
 	#mail_content, #mail_header {
 		padding: var(--font-size);
+		border: 1px dotted var(--primary);
 	}
 </style>
 
@@ -76,7 +74,7 @@
 				<div id="mail_title"></div>
 			</div>
 			<div id="mail_content"></div>
-			<a style='font-size:0.8em'>Back to inbox</a>
+			<a style='font-size:0.8em;float:right;margin-top:var(--font-size)'>Back to inbox</a>
 		</div>
 
 		<div id="inbox_window">
@@ -93,19 +91,25 @@
 	var title = document.getElementById("title");
 
 	title.addEventListener("click", function() {
-		screen(inbox_window)
+		print_all_mail();
 	});
 	document.querySelector('a').addEventListener("click", function() {
-		screen(inbox_window)
+		print_all_mail();
 	});
 
 	function print_all_mail() {
 		screen(inbox_window);
 
+		inbox_window.innerHTML = "";
+
 		let mail = parent.mail.inbox;
 		for (let i=mail.length-1; i>=0; i--) {
 			var div = document.createElement("div");
 			div.className = "email";
+
+			if (mail.read) {
+				div.className += " read";
+			}
 
 			let img = new Image(100,100);
 			img.src = mail[i].sender_icon;

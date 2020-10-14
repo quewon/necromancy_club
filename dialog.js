@@ -36,3 +36,9 @@ dialog.MAIL1 =
 come to the middle school next thursday, six pm, at the benches behind the courtyard. our founder has passed away. it won't be the funeral; the bayers have requested to hold it privately. but i hope we can come together once again in memory of the person that brought us together.
 <br /><br />
 - d`;
+dialog.MAIL2 =
+`hello! this email is registered as (one of) the administrator email(s). you have requested the password to your locked website, <a onclick="parent.hyperlink('necromancy.club')">necromancy.club</a>.
+<br /><br />
+password: iwillnotpracticenecromancy
+<br /><br />
+if you did not make this password request, too bad! just kidding. try improving your security by limiting the number of people you share your email password with, or by not leaving your account logged in when you leave an internet device.`;
