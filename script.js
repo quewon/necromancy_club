@@ -54,12 +54,13 @@ var frame = document.getElementById("frame");
 var search_type = document.getElementById("search_type");
 var search_history = ["necromancy.club"];
 var sh_value = 0;
-var links = {
-	necromancy_club: "necromancy.club",
-	email: "email.com",
-	freq: "freq",
-	spark: "spark.inc"
-}
+var links = ["necromancy.club", "email.com", "spark.inc", "freq"];
+var links_children = {
+	necromancyclub: ["contact", "faq", "index", "members", "password-recovery", "password-recovery-done"],
+	emailcom: ["index"],
+	sparkinc: ["genetics", "index", "map"],
+	freq: ["index"]
+};
 
 function search() {
 	let s = search_bar.value;
@@ -83,26 +84,23 @@ function search() {
 //like this: parent.hyperlink('necromancy_club', 'main')
 function hyperlink(link, page) {
 	let page_not_found = false;
-	if (links[link] == undefined) {
+	if (!links.includes(link)) {
 		page_not_found = true
 	} else if (page) {
-		let http = new XMLHttpRequest();
-		http.open('HEAD', link+"/"+page+".html", true);
-		http.send();
-		if (http.status == 404) {
+		if (!links_children[link.replace(/\./g, "")].includes(page)) {
 			page_not_found = true
 		}
 	}
 
 	if (!page_not_found) {
 		//change search bar value
-		search_bar.value = links[link];
+		search_bar.value = link;
 		if (page) {
 			search_bar.value += "/"+page;
 		}
 
 		search_type.textContent = 'link>'
-		if (links[link] == links.freq) {
+		if (link == "freq") {
 			search_type.textContent = 'ctrl>'
 		}
 	}
@@ -114,13 +112,13 @@ function hyperlink(link, page) {
 
 	//change frame source
 	let source = "websites/"+link;
-	if (!page_not_found) {
-		if (!page) {
-			source += "/index.html"
-		} else {
-			source += "/"+page+".html"
-		}
+	if (!page) {
+		source += "/index.html"
 	} else {
+		source += "/"+page+".html"
+	}
+
+	if (page_not_found) {
 		source = "websites/404/index.html"
 	}
 	frame.src = source;
