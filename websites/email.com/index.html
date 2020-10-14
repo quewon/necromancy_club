@@ -37,11 +37,11 @@
 		border
 	}
 
-	#inbox {
+	#title {
 		margin:0;
 		display:inline;
 	}
-	#inbox:hover {
+	#title:hover {
 		cursor: pointer;
 	}
 
@@ -127,6 +127,9 @@
 
 		let mail = parent.mail.inbox[i];
 		mail_title = mail.title;
+
+		console.log(mail);
+
 		mail_header.innerHTML = "from: " + mail.sender + " <" + mail.sender_address + ">";
 		mail_header.innerHTML += "<br />to: " + mail.receiver + " <" + mail.receiver_address + ">";
 		mail_content.innerHTML = mail.content;
