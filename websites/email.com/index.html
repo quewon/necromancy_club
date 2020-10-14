@@ -56,6 +56,12 @@
 		padding: var(--font-size);
 		border: 1px dotted var(--primary);
 	}
+
+	#mail_controls {
+		border: 1px solid var(--primary);
+	    padding: 5px;
+	    margin-bottom: 5px;
+	}
 </style>
 
 <body>
@@ -66,11 +72,11 @@
 		</div>
 	</div>
 	<div id="container">
+		<div id="mail_controls">
+			<a onclick="unread()">mark as unread</a> | <a onclick="star()">star</a> | <a onclick="trash()">trash</a>
+		</div>
 		<div id="mail_window">
 			<div id="mail_header">
-			</div>
-			<div id="mail_controls">
-				<a onclick="unread()">mark as unread</a> | <a onclick="star()">star</a> | <a onclick="trash()">trash</a>
 			</div>
 			<div id="mail_content"></div>
 			<a id="return" style='font-size:0.8em;float:right;margin-top:var(--font-size)'>Back to inbox</a>
