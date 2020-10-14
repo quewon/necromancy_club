@@ -67,13 +67,13 @@
 	</div>
 	<div id="container">
 		<div id="mail_window">
+			<div id="mail_header">
+			</div>
 			<div id="mail_controls">
 				<a onclick="unread()">mark as unread</a> | <a onclick="star()">star</a> | <a onclick="trash()">trash</a>
 			</div>
-			<div id="mail_header">
-			</div>
 			<div id="mail_content"></div>
-			<a style='font-size:0.8em;float:right;margin-top:var(--font-size)'>Back to inbox</a>
+			<a id="return" style='font-size:0.8em;float:right;margin-top:var(--font-size)'>Back to inbox</a>
 		</div>
 
 		<div id="inbox_window">
@@ -92,7 +92,7 @@
 	title.addEventListener("click", function() {
 		print_all_mail();
 	});
-	document.querySelector('a').addEventListener("click", function() {
+	document.getElementById("return").addEventListener("click", function() {
 		print_all_mail();
 	});
 
@@ -154,13 +154,13 @@
 	}
 
 	function star() {
-		for (let i=selected_mails.length-1; i>=0; i--) {
-			parent.mail.move(selected_mails[i], 'inbox', 'starred')
+		for (let i=0; i<selected_mails.length; i++) {
+			parent.mail.inbox[i].starred = true;
 		}
 	}
 	function trash() {
 		for (let i=selected_mails.length-1; i>=0; i--) {
-			parent.mail.move(selected_mails[i], 'inbox', 'trash')
+			parent.mail.delete(selected_mails[i])
 		}
 	}
 	function unread() {

@@ -167,7 +167,6 @@ function clear_log() {
 
 mail.inbox = [];
 mail.trash = [];
-mail.starred = [];
 
 mail.create = function(sender, title, content, read) {
 	let email = {};
@@ -176,6 +175,7 @@ mail.create = function(sender, title, content, read) {
 	email.title = title || "[untitled]";
 	email.content = content || "[unwritten]";
 	email.read = read || false;
+	email.starred = false;
 
 	let contact = mail.contacts[sender.replace(/\s/g, "")];
 	let player_contact = mail.contacts.player;
@@ -189,7 +189,12 @@ mail.create = function(sender, title, content, read) {
 	mail.inbox.push(email);
 };
 
-mail.move = function(i, a, b) {
-	mail[b].push(mail[a][i]);
-	mail[a].splice(i,1)
+mail.delete = function(i) {
+	mail[b].push(mail.inbox[i]);
+
+	if (mail.inbox[i].starred) {
+		//delete it from starred too
+	}
+
+	mail.inbox.splice(i,1)
 }
