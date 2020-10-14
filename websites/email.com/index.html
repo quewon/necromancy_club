@@ -49,9 +49,6 @@
 		cursor: pointer;
 	}
 
-	#mail_header {
-		border-bottom: 1px dotted var(--primary);
-	}
 	#mail_title {
 		font-size: 1.5em;
 	}
@@ -70,8 +67,10 @@
 	</div>
 	<div id="container">
 		<div id="mail_window">
+			<div id="mail_controls">
+				<a onclick="unread()">mark as unread</a> | <a onclick="star()">star</a> | <a onclick="trash()">trash</a>
+			</div>
 			<div id="mail_header">
-				<div id="mail_title"></div>
 			</div>
 			<div id="mail_content"></div>
 			<a style='font-size:0.8em;float:right;margin-top:var(--font-size)'>Back to inbox</a>
@@ -97,10 +96,13 @@
 		print_all_mail();
 	});
 
+	var selected_mails = [];
+
 	function print_all_mail() {
 		screen(inbox_window);
 
 		inbox_window.innerHTML = "";
+		selected_mails = [];
 
 		let mail = parent.mail.inbox;
 		for (let i=mail.length-1; i>=0; i--) {
@@ -136,17 +138,36 @@
 
 	function show(i) {
 		screen(mail_window);
+		mail_header.innerHTML = "<div id="mail_title"></div>";
+		mail_content.innerHTML = "";
 
 		let mail = parent.mail.inbox[i];
 		mail_title = mail.title;
 
-		mail_header.innerHTML = "from: " + mail.sender + " \<" + mail.sender_address + "\>";
-		mail_header.innerHTML += "<br />to: " + mail.receiver + " \<" + mail.receiver_address + "\>";
+		mail_header.innerHTML += "from: " + mail.sender + " &lt;" + mail.sender_address + "&gt;";
+		mail_header.innerHTML += "<br />to: " + mail.receiver + " &lt;" + mail.receiver_address + "&gt;";
 		mail_content.innerHTML = mail.content;
 
+		selected_mails.push(i);
 		mail.read = true;
 		document.getElementsByClassName("email")[i].className = "email read";
 	}
 
-	print_all_mail()
+	function star() {
+		for (let i=selected_mails.length-1; i>=0; i--) {
+			parent.mail.move(selected_mails[i], 'inbox', 'starred')
+		}
+	}
+	function trash() {
+		for (let i=selected_mails.length-1; i>=0; i--) {
+			parent.mail.move(selected_mails[i], 'inbox', 'trash')
+		}
+	}
+	function unread() {
+		for (let i=0; i<selected_mails.length; i++) {
+			parent.mail.inbox[i].read = false;
+		}
+	}
+
+	print_all_mail();
 </script>

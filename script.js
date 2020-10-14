@@ -190,6 +190,6 @@ mail.create = function(sender, title, content, read) {
 };
 
 mail.move = function(i, a, b) {
-	mail[b].push(mail.inbox[i]);
+	mail[b].push(mail[a][i]);
 	mail[a].splice(i,1)
 }

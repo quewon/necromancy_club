@@ -1,15 +1,15 @@
 html {
+	/* burger */
+	--bg: #d62828; /* contrast with primary */
+	--primary: #eae2b7;
+	--secondary: #F3AD16; /* between bg and primary */
+	--links: #ffe236; /*contrast with everything */
+
 	/* newspaper */
 	--bg: #808080;
 	--primary: #fff;
 	--secondary: lightgray;
 	--links: #ffc524;
-
-	/* burger */
-	--bg: #d62828; /* contrast with primary */
-	--primary: #eae2b7;
-	--secondary: #F3AD16; /* close to bg */
-	--links: #ffe236; /*contrast with everything */
 
 	--width: 500px;
 	--height: 500px;
