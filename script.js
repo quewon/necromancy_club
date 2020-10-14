@@ -186,11 +186,11 @@ mail.create = function(sender, title, content, read) {
 	email.receiver_address = player_contact.address;
 	email.receiver_icon = player_contact.icon;
 
-	mail.inbox.push(email);
+	mail.inbox.unshift(email);
 };
 
 mail.delete = function(i) {
-	mail[b].push(mail.inbox[i]);
+	mail[b].unshift(mail.inbox[i]);
 
 	if (mail.inbox[i].starred) {
 		//delete it from starred too
