@@ -89,6 +89,7 @@ iframe {
 	padding-left: 1ch;
 	padding-right: 1ch;
 	float: right;
+	border: 0;
 	border-left: 1px solid var(--bg);
 }
 

@@ -84,12 +84,12 @@
 	var mail_window = document.getElementById("mail_window");
 	var mail_header = document.getElementById("mail_header");
 	var mail_content = document.getElementById("mail_content");
+
 	function print_all_mail() {
-		inbox_window.style.display = 'block';
-		mail_window.style.display = 'none';
+		screen(inbox_window);
 
 		let mail = parent.mail.inbox;
-		for (let i=mail.length-1; i=0; i--) {
+		for (let i=mail.length-1; i>=0; i--) {
 			var div = document.createElement("div");
 			div.className = "email";
 
@@ -101,6 +101,19 @@
 			div.innerHTML += `<a onclick="show('` + i + `')">`+ mail[i].title + `</a><br />` + mail[i].sender;
 			inbox_window.appendChild(div)
 		}
+	}
+
+	var current_screen;
+	function screen(s) {
+		if (s.id == current_screen) {
+			return
+		}
+
+		inbox_window.style.display = "none";
+		mail_window.style.display = "none";
+
+		s.style.display = "block";
+		current_screen = s.id;
 	}
 
 	function show(i) {

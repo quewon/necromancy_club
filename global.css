@@ -5,7 +5,7 @@ html {
 	--secondary: lightgray;
 	--links: #ffc524;
 
-	/* soda */
+	/* burger */
 	--bg: #d62828; /* contrast with primary */
 	--primary: #eae2b7;
 	--secondary: #F3AD16; /* close to bg */
@@ -68,6 +68,7 @@ button:hover {
 	color: var(--primary);
 	cursor: pointer;
 	border-top: 1px solid var(--primary);
+	border-bottom: 1px solid var(--primary);
 }
 button:active {
 	outline:none;
