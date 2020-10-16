@@ -18,22 +18,22 @@ var mail = {};
 mail.contacts = {
 	player: {
 		address: "rosebirdman@email.com",
-		icon: "icons/d.jpg"
+		icon: "icons/d.png"
 	},
 	D: {
 		address: "d@spark.inc",
-		icon: "icons/d.jpg"
+		icon: "icons/d.png"
 	},
 	SparkTech_Service: {
 		address: "noreply@spark.inc",
-		icon: "icons/spark.jpg"
+		icon: "icons/spark.png"
 	}
 }
 
 dialog.MAIL1 =
 `dear rosie,
 <br /><br />
-come to <a onclick="parent.hyperlink('spark.inc/map')">MS</a> next thursday, six pm, at the benches behind the courtyard. our founder has passed away. it won't be the funeral; the bayers have requested to hold it privately. but i hope we can come together once again in memory of the person that brought us together.
+come to <a onclick="parent.hyperlink('spark.inc/map')">HS</a> next thursday, six pm, at the benches behind the courtyard. our founder has passed away. it won't be the funeral; the bayers have requested to hold it privately. but i hope we can come together once again in memory of the person that brought us together.
 <br /><br />
 - d`;
 dialog.MAIL2 =
